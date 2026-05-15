@@ -1,0 +1,30 @@
+name: cd-aks-argocd
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["main"]
+    paths:
+      - "kubernetes/**"
+      - "helm/**"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Azure Login
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: Set kubectl context
+        uses: azure/aks-set-context@v4
+        with:
+          resource-group: ${{ secrets.AKS_RESOURCE_GROUP }}
+          cluster-name: ${{ secrets.AKS_CLUSTER_NAME }}
+      - name: Apply ArgoCD Application
+        run: kubectl apply -f kubernetes/argocd/application.yaml
+      - name: Smoke test endpoint
+        run: |
+          kubectl get pods -n banking
+          echo "Smoke test to be extended with actual ingress endpoint checks"

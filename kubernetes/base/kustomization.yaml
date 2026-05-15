@@ -1,0 +1,6 @@
+resources:
+  - auth-service.yaml
+  - customer-service.yaml
+  - account-service.yaml
+  - transfer-service.yaml
+  - ingress.yaml

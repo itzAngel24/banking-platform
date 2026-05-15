@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: banking-platform
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/itzAngel24/banking-platform.git
+    targetRevision: main
+    path: helm/banking-platform
+    helm:
+      valueFiles:
+        - values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: banking
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

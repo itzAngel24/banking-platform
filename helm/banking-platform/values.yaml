@@ -1,0 +1,20 @@
+namespace: banking
+
+services:
+  - name: auth-service
+    image: itzangel24/auth-service:latest
+    replicas: 2
+  - name: customer-service
+    image: itzangel24/customer-service:latest
+    replicas: 2
+  - name: account-service
+    image: itzangel24/account-service:latest
+    replicas: 2
+  - name: transfer-service
+    image: itzangel24/transfer-service:latest
+    replicas: 2
+
+ingress:
+  enabled: true
+  className: nginx
+  host: api.banking.local
