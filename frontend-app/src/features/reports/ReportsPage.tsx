@@ -1,0 +1,2 @@
+import { Panel } from "../../components/ui/Panel";
+export function ReportsPage() { return <Panel title="Reportes y Analytics"><div className="grid gap-3 sm:grid-cols-3"><button className="rounded-lg bg-slate-900 p-3 text-white">Exportar movimientos PDF</button><button className="rounded-lg bg-slate-700 p-3 text-white">Exportar KPI Excel</button><button className="rounded-lg bg-mint p-3 text-white">Generar reporte fraude</button></div><p className="mt-4 text-sm text-slate-500">Incluye trazabilidad, KPIs financieros y estadisticas de comportamiento.</p></Panel>; }

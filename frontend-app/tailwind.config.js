@@ -1,0 +1,1 @@
+export default { content: ["./index.html", "./src/**/*.{ts,tsx}"], theme: { extend: { colors: { ink: "#0f172a", slateBrand: "#1e293b", mint: "#10b981", coral: "#fb7185" }, fontFamily: { display: ["Poppins", "sans-serif"], body: ["Manrope", "sans-serif"] } } }, plugins: [] };

@@ -1,0 +1,3 @@
+import { Panel } from "../../components/ui/Panel";
+const loans = [{ id: "LN-101", amount: "S/ 20,000", rate: "18.5%", term: "36m", status: "APPROVED" }, { id: "LN-203", amount: "S/ 8,500", rate: "16.2%", term: "24m", status: "PENDING" }];
+export function LoansPage() { return <Panel title="Prestamos"><div className="space-y-3">{loans.map((loan) => <article key={loan.id} className="rounded-xl border p-4"><div className="flex items-center justify-between"><h4 className="font-display text-slate-900">{loan.id}</h4><span className="rounded-full bg-amber-100 px-2 py-1 text-xs text-amber-700">{loan.status}</span></div><p className="mt-2 text-sm text-slate-600">Monto: {loan.amount} | Tasa: {loan.rate} | Plazo: {loan.term}</p></article>)}</div></Panel>; }
